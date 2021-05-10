@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  position: absolute;
+  top: 59px;
+  bottom: 0;
+  width: 100%;
+  background-color: #d0d0d0;
+}
+
+.notes {
+  flex: 300px;
+  overflow-y:auto;
+  margin-right: 1px;
+  background-color: white;
+}
+
+.editor{
+  flex: 100%;
+  background-color: white;
+}
+
+.fixedButton{
+  position:fixed;
+  bottom:0;
+  right:0;
+  margin: 15px;
+  color: white;
+  background-color: #528aff;
+  font-size: 10pt;
+  font-weight: 700;
+  border: none;
+  padding: 12px;
+  border-radius: 15px;
+
+  &:hover {
+    background-color: #4271cd;
+  }
+}
