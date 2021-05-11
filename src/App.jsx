@@ -3,12 +3,12 @@ import { useCookies } from 'react-cookie';
 
 import TitleBar from './components/TitleBar/TitleBar';
 import WelcomePage from './components/WelcomePage/WelcomePage';
-import NotesEditor from './components/NotesEditor/NotesEditor';
+import NotesPage from './components/NotesPage/NotesPage';
 
 import './App.scss';
 
 const App = () => {
-  const [cookies, setCookies] = useCookies(['notes', 'userData']);
+  const [cookies, setCookies] = useCookies(['notes', 'activeNote']);
 
   useEffect(() => {
     if (cookies.notes === 'undefined') {
@@ -22,7 +22,7 @@ const App = () => {
       {JSON.stringify(cookies.notes) === '[]' ? (
         <WelcomePage setCookies={setCookies} />
       ) : (
-        <NotesEditor cookies={cookies} setCookies={setCookies} />
+        <NotesPage cookies={cookies} setCookies={setCookies} />
       )}
     </div>
   );

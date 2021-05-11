@@ -1,4 +1,5 @@
 const path = require('path');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -8,12 +9,9 @@ module.exports = ({ goal }) => ({
     goal === 'development'
       ? { contentBase: path.join(__dirname, 'src') }
       : undefined,
+  devtool: goal === 'development' ? 'cheap-module-source-map' : undefined,
   optimization:
-    goal === 'production'
-      ? {
-          minimize: true,
-        }
-      : undefined,
+    goal === 'development' ? { minimize: false } : { minimize: true },
   entry: path.join(__dirname, 'src', 'index.jsx'),
   output: {
     filename: 'App.bundle.js',
@@ -40,5 +38,6 @@ module.exports = ({ goal }) => ({
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html'),
     }),
+    new ErrorOverlayPlugin(),
   ],
 });
