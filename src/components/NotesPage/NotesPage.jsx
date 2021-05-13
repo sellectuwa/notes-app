@@ -1,33 +1,30 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
-import { ContentState, EditorState, convertToRaw } from 'draft-js';
+import { ContentState, convertToRaw } from 'draft-js';
 import styles from './NotesPage.module.scss';
 import NotesList from './NotesList';
 import NotesEditor from './NotesEditor';
 
-const NotesPage = ({ cookies, setCookies }) => (
+const NotesPage = ({ notes, activeNote, setData }) => (
   <div>
     <div className={styles.container}>
-      <NotesList cookies={cookies} setCookies={setCookies} />
-      <NotesEditor cookies={cookies} setCookies={setCookies} />
+      <NotesList notes={notes} activeNote={activeNote} setData={setData} />
+      <NotesEditor notes={notes} activeNote={activeNote} setData={setData} />
     </div>
     <button
       type="button"
       onClick={() => {
-        const newCookies = cookies.notes.concat([
+        const newNotes = [
           {
             id: uuid(),
+            title: 'New note',
             content: JSON.stringify(
-              convertToRaw(
-                ContentState.createFromText(
-                  'New note... \nType something here...',
-                ),
-              ),
+              convertToRaw(ContentState.createFromText('')),
             ),
           },
-        ]);
+        ];
 
-        setCookies('notes', newCookies);
+        setData('notes', notes.concat(newNotes));
       }}
       className={styles.fixedButton}
     >

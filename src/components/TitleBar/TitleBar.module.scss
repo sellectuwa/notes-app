@@ -1,5 +1,7 @@
 .header {
   margin: 0;
+  display: grid;
+  grid: none / 150px 1fr 120px;
   border-bottom: solid #d0d0d0 1px;
   h1{
     color: #262626;
@@ -8,5 +10,24 @@
     margin: 0;
     font-weight: 500;
     user-select: none;
+  }
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 3;
+    button {
+      color: white;
+      background-color: #528aff;
+      font-size: 10pt;
+      font-weight: 700;
+      border: none;
+      padding:9px 12px;
+      border-radius: 15px;
+
+      &:hover {
+        background-color: #4271cd;
+      }
+    }
   }
 }

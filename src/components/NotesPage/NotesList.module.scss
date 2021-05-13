@@ -1,6 +1,13 @@
 .notes {
   flex: 300px;
+  min-width: 300px;
   overflow-y:auto;
   margin-right: 1px;
   background-color: white;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
 }

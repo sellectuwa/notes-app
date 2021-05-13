@@ -1,11 +1,43 @@
 .item {
-  background-color: #d0d0d0;
+  transition: ease-out 0.5s;
+  display: grid;
+  grid-template:none / 1fr 60px ;
   user-select: none;
-  h3 {
-    margin: 0;
+  .removeButton {
+    background-color: white;
   }
 }
 
 .active {
-  background-color: #989898;
+  transition: ease-out 0.5s;
+  background-color: #efefef;
+  .removeButton {
+    background-color: #efefef;
+  }
+}
+
+.info {
+  padding: 15px 18px 15px 18px;
+  .title {
+    margin: 0;
+    font-size: 14.5pt;
+    font-weight: 700;
+  }
+  .desc {
+    margin: 4px 0 0;
+    font-size: 11.5pt;
+  }
+}
+
+.removeButton {
+  font-size: 11pt;
+  border: none;
+  border-radius: 0;
+  color: #f14444;
+  transition: ease-out 0.5s;
+  &:hover{
+    transition: ease-out 0.5s;
+    color: white;
+    background-color: #f14444;
+  }
 }

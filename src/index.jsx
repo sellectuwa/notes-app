@@ -1,11 +1,7 @@
 import React from 'react';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css/animate.min.css';
 import { render } from 'react-dom';
-import { CookiesProvider } from 'react-cookie';
 import App from './App';
 
-render(
-  <CookiesProvider>
-    <App />
-  </CookiesProvider>,
-  document.getElementById('root'),
-);
+render(<App />, document.getElementById('root'));
